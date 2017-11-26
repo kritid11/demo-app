@@ -1,0 +1,61 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header> 
+
+<ion-content padding>
+  <h3>Ionic Menu Starter</h3>
+
+  <p>
+    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
+  </p>
+
+  <button ion-button secondary menuToggle>Toggle Menu</button>
+</ion-content>
+
+-->
+
+
+<ion-content padding>
+
+  <div style="margin-top:40px" class="center-text">
+    <h3>CRM Feedback App</h3>
+
+    <p class="header">
+      Login
+    </p>
+
+    <ion-item class="center-element">
+      <ion-label color="primary" floating>Username</ion-label>
+      <ion-input style="padding-left:5px" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item class="center-element">
+      <ion-label color="primary" floating>Password</ion-label>
+      <ion-input style="padding-left:5px"  type="password" ></ion-input>
+    </ion-item>
+
+    <ion-item class="center-element">
+      <ion-label color="primary" floating >User Type</ion-label>
+      <ion-select [(ngModel)]="userType" style="padding-left:5px" >
+        <ion-option value="admin" selected>Admin</ion-option>
+        <ion-option value="user">Branch Manager</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+
+
+    <!-- <button class="center-element" ion-button secondary menuToggle (click)="goToDashboard()">Login</button> -->
+    <button class="center-element" ion-button secondary style="margin-top:40px" (click)="goToDashboard()">Login</button>
+
+
+  </div> 
+</ion-content>
+
+<ion-nav  #content swipeBackEnabled="false"></ion-nav>
+
