@@ -35,19 +35,47 @@
 
 
       <div class="center-text" *ngIf="isSurveyStarted && !showThanks" >
-        <p class="header">{{questionPages[questionIndex].question}}</p>        
-        <span *ngFor="let item of answerPages[questionIndex].answers" radio-group [(ngModel)]="selectedAnswer">
-            <span class="padding5">
-              <ion-label style="color:#488aff">{{item.answer}}</ion-label>
-              <ion-radio value="{{item.answer}}" style="margin-bottom:0"></ion-radio>
-            </span>
-        </span>        
+
+        <!-- ask customer's info -->
+        <div *ngIf="!showQuestionnaire">
+          <ion-item>
+            <ion-label color="primary" floating>Please enter your name</ion-label>
+            <ion-input style="padding-left:5px" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item >
+            <ion-label color="primary" floating>Please enter your Email id</ion-label>
+            <ion-input style="padding-left:5px" type="email"></ion-input>
+          </ion-item>
+
+          <ion-item >
+            <ion-label color="primary" floating>Please enter your Mobile number</ion-label>
+            <ion-input style="padding-left:5px" type="number"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" floating>Please enter your Date of birth</ion-label>
+            <ion-input style="padding-left:5px" type="date"></ion-input>
+          </ion-item>
+        </div>
+
+        <!-- ask customer's feedback -->
+        <div *ngIf="showQuestionnaire">
+          <p class="header">{{questionPages[questionIndex].question}}</p>        
+          <span *ngFor="let item of answerPages[questionIndex].answers" radio-group [(ngModel)]="selectedAnswer">
+              <span class="padding5">
+                <ion-radio value="{{item.answer}}" style="margin-bottom:0"></ion-radio>
+                <ion-label style="color:#488aff">{{item.answer}}</ion-label>              
+              </span>
+          </span>  
+        </div> 
+
       </div>
     
 
       <div class="row" *ngIf="isSurveyStarted && !showThanks" >
         <div class="col-xs-1 col-sm-1 col-md-1">
-          <button ion-button secondary class="footer-btn" (click)="goToPreviousQuestion()" *ngIf="questionIndex>0">
+          <button ion-button secondary class="footer-btn" (click)="goToPreviousQuestion()" *ngIf="showQuestionnaire">
              Back
           </button>
         </div>
@@ -57,8 +85,7 @@
              Next
           </button>
         </div>
-      </div>
-	
+      </div>	
 		</div>	
 </ion-content>
 

@@ -21,9 +21,10 @@ import { UserDashboardPage } from '../user-dashboard/user-dashboard';
   	questionPages: Array<{question: string}>;
   	answerPages: Array<{answers: Array<{answer: string}>}>;
   	questionIndex: number;
+  	showQuestionnaire: boolean=false;
 
 	constructor(public navCtrl: NavController) {
-		this.questionIndex=0;
+		this.questionIndex=-1;
 		this.questionPages = [
 	      { question: 'How was the food served?' },
 	      { question: 'How would you rate ambience?' },
@@ -55,7 +56,7 @@ import { UserDashboardPage } from '../user-dashboard/user-dashboard';
 
 	startSurvey(){
 		this.isSurveyStarted=true;	
-		this.questionIndex=0;  	
+		this.questionIndex=-1;  	
 	}
 
 	goToNextQuestion(){
@@ -67,11 +68,17 @@ import { UserDashboardPage } from '../user-dashboard/user-dashboard';
 		    }, 3000);
 		}else{
 			this.questionIndex++;
+			this.showQuestionnaire=true;
 		}
 	}
 
 	goToPreviousQuestion(){
-			this.questionIndex--;
+		
+		if(this.questionIndex==0){
+			this.showQuestionnaire=false;		
+			
+		}
+		this.questionIndex--;
 		
 	}
 
