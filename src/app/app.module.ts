@@ -7,17 +7,20 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { UserDashboardPage } from '../pages/user-dashboard/user-dashboard';
+import { KioskPage } from '../pages/kiosk-mode/kiosk-mode';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+
 @NgModule({
-  declarations: [
+  declarations: [     
     MyApp,
     HomePage,
     ListPage,
     DashboardPage,
-    UserDashboardPage
+    UserDashboardPage,
+    KioskPage
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     DashboardPage,
-    UserDashboardPage
+    UserDashboardPage,
+    KioskPage
   ],
   providers: [
     StatusBar,

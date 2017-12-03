@@ -1,0 +1,65 @@
+<!--  <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Dashboard</ion-title>
+  </ion-navbar>
+</ion-header>  -->
+
+<ion-content padding>
+	 
+    <div class="row" *ngIf="!isSurveyStarted" >
+      <div class="col-xs-11 col-sm-11 col-md-11"></div>
+      <div class="col-xs-1 col-sm-1 col-md-1">
+        <button ion-button secondary class="footer-btn" (click)="stopKioskMode()">
+           Exit
+        </button>
+      </div>
+    </div>
+
+    <div style="margin-top:20%">
+
+      <div *ngIf="!isSurveyStarted" class="center-text">
+    		<p class="header">Spare a few minutes to tell us about your experience</p>
+        <button  ion-button secondary (click)="startSurvey()">
+            Start Survey
+        </button>
+      </div> 
+
+
+
+      <div *ngIf="showThanks" class="center-text">
+        <p class="header">Thanks for your time!! </p>
+      </div>  
+
+
+      <div class="center-text" *ngIf="isSurveyStarted && !showThanks" >
+        <p class="header">{{questionPages[questionIndex].question}}</p>        
+        <span *ngFor="let item of answerPages[questionIndex].answers" radio-group [(ngModel)]="selectedAnswer">
+            <span class="padding5">
+              <ion-label style="color:#488aff">{{item.answer}}</ion-label>
+              <ion-radio value="{{item.answer}}" style="margin-bottom:0"></ion-radio>
+            </span>
+        </span>        
+      </div>
+    
+
+      <div class="row" *ngIf="isSurveyStarted && !showThanks" >
+        <div class="col-xs-1 col-sm-1 col-md-1">
+          <button ion-button secondary class="footer-btn" (click)="goToPreviousQuestion()" *ngIf="questionIndex>0">
+             Back
+          </button>
+        </div>
+        <div class="col-xs-10 col-sm-10 col-md-10"></div>
+        <div class="col-xs-1 col-sm-1 col-md-1">
+          <button ion-button secondary class="footer-btn" (click)="goToNextQuestion()">
+             Next
+          </button>
+        </div>
+      </div>
+	
+		</div>	
+</ion-content>
+
+

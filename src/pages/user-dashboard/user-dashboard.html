@@ -1,27 +1,28 @@
  <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+  <ion-navbar hideBackButton>    
     <ion-title>Dashboard</ion-title>
+     <ion-buttons end>
+      <button ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>  
   </ion-navbar>
 </ion-header> 
 
 <ion-content padding>
-	<div class="center-text">
-  		
+	<div class="center-text">  		
   		<p class="header">Welcome Branch Manager!</p>
 	</div>
 
   <div></div>
   	<div class="row footer">
   		<div class="col-xs-6 col-sm-6 col-md-6">
-  			<button  ion-button secondary class="footer-btn" (click)="goToDashboard()">
+  			<button  ion-button secondary class="footer-btn" (click)="goToKioskMode()">
   				Kiosk mode
   			</button>
   		</div>
   		<div class="col-xs-6 col-sm-6 col-md-6">
-  			<button ion-button secondary class="footer-btn" (click)="goToDashboard()">
+  			<button ion-button secondary class="footer-btn" (click)="syncToServer()">
   			Sync to Server
   		</button>
   		</div>

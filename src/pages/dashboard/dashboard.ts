@@ -11,13 +11,12 @@ import { HomePage } from '../home/home';
 })
 
   export class DashboardPage {
-    constructor(public navCtrl: NavController) {
-  }
+    constructor(public navCtrl: NavController) {}
 
+   
 
-
-  logout() {
+	logout() {
       this.navCtrl.push(HomePage);
-   }
+    }
 
 }
